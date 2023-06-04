@@ -22,22 +22,22 @@ def do_connect():
         wlan.connect('SSID', 'PASSWORD')
         while not wlan.isconnected():
             pass
-    print('network config:', wlan.ifconfig())
-
-
+    print('network config:', wlan.ifconfig()
 do_connect()
+
 s.connect(("targetip",targetport))
 
+#define value strings
 temp_str = ""
 pr_str = ""
 hum_str = ""
 
-temp_str, pr_str, hum_str = bme.values
+temp_str, pr_str, hum_str = bme.values #unpacks bme.values
 
 msg = "BME280 temperature={},pressure={},humidity={}".format(*bme.values)
 
 while(True):
-  s.send(msg)
-  time.sleep(1)
+  s.send(msg) #this sends our message with all the data
+  time.sleep(1) #time in between each packet is sent (sleep() is in seconds)
 
 
