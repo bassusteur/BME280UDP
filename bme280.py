@@ -3,7 +3,7 @@ import usocket as socket
 from machine import Pin, I2C
 import bme280_float as bme280
 
-localIP = "10.0.0.11"
+localIP = "youresp'sip"
 localPort = 8888
 
 i2c = I2C(scl=Pin(5), sda=Pin(4), freq=100000)
@@ -19,14 +19,14 @@ def do_connect():
     wlan.active(True)
     if not wlan.isconnected():
         print('connecting to network...')
-        wlan.connect('enel-WiFi_5C322CE1', 'TR7RXN7QQC')
+        wlan.connect('SSID', 'PASSWORD')
         while not wlan.isconnected():
             pass
     print('network config:', wlan.ifconfig())
 
 
 do_connect()
-s.connect(("10.0.0.7",8089))
+s.connect(("targetip",targetport))
 
 temp_str = ""
 pr_str = ""
