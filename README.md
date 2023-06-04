@@ -4,4 +4,4 @@ I needed to send udp packets from my esp8266 to an InfluxDB database hosted on a
 ## libraries used
 I used this wonderful library by robert-hh:
 https://github.com/robert-hh/BME280
-(i only uploaded bme280_float.py on my esp)
+i've uploaded an edited file taken from this library to get rid of the measurement units reported frm the bme.values function because influxdb didn't like them.
