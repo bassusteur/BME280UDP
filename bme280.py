@@ -32,11 +32,9 @@ temp_str = ""
 pr_str = ""
 hum_str = ""
 
-temp_str, pr_str, hum_str = bme.values #unpacks bme.values
-
-msg = "BME280 temperature={},pressure={},humidity={}".format(*bme.values)
-
 while(True):
+  temp_str, pr_str, hum_str = bme.values #unpacks bme.values
+  msg = "BME280 temperature={},pressure={},humidity={}".format(*bme.values)
   s.send(msg) #this sends our message with all the data
   time.sleep(1) #time in between each packet is sent (sleep() is in seconds)
 
